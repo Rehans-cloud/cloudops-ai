@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CloudOps AI</title>
+
+    <style>
+        body {
+            background: #101827;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .status {
+            color: #22c55e;
+            font-size: 24px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>☁️ CloudOps AI</h1>
+
+        <h2>Intelligent Cloud Monitoring</h2>
+
+        <p class="status">● Application Online</p>
+
+        <p>AI-powered cloud monitoring and troubleshooting platform.</p>
+
+        <button onclick="checkStatus()">Check Application</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        async function checkStatus() {
+            const response = await fetch('/api/status');
+            const data = await response.json();
+
+            document.getElementById('result').innerText =
+                data.message;
+        }
+    </script>
+</body>
+</html>
